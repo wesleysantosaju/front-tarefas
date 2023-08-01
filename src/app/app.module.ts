@@ -5,17 +5,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CadastroTarefasComponent } from './cadastro-tarefas/cadastro-tarefas.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NavbarComponent } from './navbar/navbar.component';
+import { RouterModule } from '@angular/router';
+import { ListarTarefasComponent } from './listar-tarefas/listar-tarefas.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CadastroTarefasComponent,
-    CadastroTarefasComponent
+    CadastroTarefasComponent,
+    NavbarComponent,
+    ListarTarefasComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    RouterModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent]

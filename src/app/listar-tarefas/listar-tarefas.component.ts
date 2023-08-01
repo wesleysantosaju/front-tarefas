@@ -16,7 +16,7 @@ const TAREFAS: Tarefas[] = [
 		acoes: 'Marcar como concluída',
     data_inicial: '01/08/2023',
     data_conclusao: '15/08/2023',
-    status_tarefa: 'Em andamento',
+    status_tarefa: 'Concluída',
 	},
   {
 		tipo: 'Desenvolver',

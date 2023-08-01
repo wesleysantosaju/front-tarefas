@@ -1,0 +1,19 @@
+/* Estilos para a tabela */
+table {
+  width: 85%; /* Defina o tamanho desejado para a tabela */
+  margin: 50px auto 0; /* Adicione uma margem superior de 20 pixels para afastar a tabela do topo */
+  border: 1px solid #ccc; /* Adicione borda para melhor visualização */
+  border-collapse: collapse; /* Mesclar bordas de células adjacentes */
+}
+
+/* Estilos para células da tabela */
+th, td {
+  padding: 8px; /* Espaçamento interno para as células */
+  border: 1px solid #ccc; /* Borda para células */
+  text-align: center; /* Alinhar texto ao centro nas células */
+}
+h2{
+  width: 50%; /* Defina o tamanho desejado para a tabela */
+  margin: 100px auto 0; /* Adicione uma margem superior de 20 pixels para afastar a tabela do topo */
+  text-align: center;
+}

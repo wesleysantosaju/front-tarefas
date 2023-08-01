@@ -1,1 +1,27 @@
-<p>listar-tarefas works!</p>
+<ng-container >
+  <h2>Lista de Tarefas</h2>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Descrição</th>
+        <th scope="col">Data Inicial</th>
+        <th scope="col">Data Conclusão</th>
+        <th scope="col">Status da Tarefa</th>
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let country of countries; index as i">
+        <th scope="row">{{ i + 1 }}</th>
+        <td>{{ country.tipo }}</td>
+        <td>{{ country.descricao }}</td>
+        <td>{{ country.data_inicial }}</td>
+        <td>{{ country.data_conclusao }}</td>
+        <td>{{ country.status_tarefa }}</td>
+        <td><button type="button" class="btn btn-success btn-sm" >Concluída</button></td>
+      </tr>
+    </tbody>
+  </table>
+</ng-container>

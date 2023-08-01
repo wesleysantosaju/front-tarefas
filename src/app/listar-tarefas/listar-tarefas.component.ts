@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-interface Country {
+interface Tarefas {
 	tipo: string;
 	descricao: string;
 	acoes: string;
@@ -9,7 +9,7 @@ interface Country {
   status_tarefa: string;
 }
 
-const COUNTRIES: Country[] = [
+const TAREFAS: Tarefas[] = [
 	{
 		tipo: 'Estudar',
 		descricao: 'Estudar para prova!',
@@ -26,6 +26,14 @@ const COUNTRIES: Country[] = [
     data_conclusao: '02/09/2023',
     status_tarefa: 'Em andamento',
 	},
+  {
+		tipo: 'Limpar a Casa',
+		descricao: 'Fazer limpeza da casa',
+		acoes: 'Marcar como concluída',
+    data_inicial: '01/08/2023',
+    data_conclusao: '01/08/2023',
+    status_tarefa: 'Concluída',
+	},
 ];
 
 @Component({
@@ -38,5 +46,5 @@ export class ListarTarefasComponent {
   constructor(){
 
   }
-  countries = COUNTRIES;
+  tarefas = TAREFAS;
 }

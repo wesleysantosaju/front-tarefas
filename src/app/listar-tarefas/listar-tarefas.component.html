@@ -13,14 +13,19 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let country of countries; index as i">
+      <tr *ngFor="let tarefa of tarefas; index as i">
         <th scope="row">{{ i + 1 }}</th>
-        <td>{{ country.tipo }}</td>
-        <td>{{ country.descricao }}</td>
-        <td>{{ country.data_inicial }}</td>
-        <td>{{ country.data_conclusao }}</td>
-        <td>{{ country.status_tarefa }}</td>
-        <td><button type="button" class="btn btn-success btn-sm" >Concluída</button></td>
+        <td>{{ tarefa.tipo }}</td>
+        <td>{{ tarefa.descricao }}</td>
+        <td>{{ tarefa.data_inicial }}</td>
+        <td>{{ tarefa.data_conclusao }}</td>
+        <td *ngIf="tarefa.status_tarefa == 'Em andamento'" class="sttAndamento">{{ tarefa.status_tarefa }}</td>
+        <td *ngIf="tarefa.status_tarefa == 'Concluída'" class="sttConcluida">{{ tarefa.status_tarefa }}</td>
+        <td>
+          <button type="button" class="btn btn-danger btn-sm"  *ngIf="tarefa.status_tarefa == 'Concluída'">Excluir Tarefa</button>
+          <button type="button" class="btn btn-success btn-sm"  *ngIf="tarefa.status_tarefa == 'Em andamento'">Concluída</button>
+        </td>
+
       </tr>
     </tbody>
   </table>

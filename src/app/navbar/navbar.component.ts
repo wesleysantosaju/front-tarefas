@@ -1,5 +1,6 @@
 import { Component, OnInit  } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +9,8 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   exibirBotao: boolean = false;
-  constructor(private router: Router){
+  constructor(private router: Router,
+    private modalService: NgbModal){
 
   }
   ngOnInit() {
@@ -18,4 +20,8 @@ export class NavbarComponent implements OnInit {
       }
     });
   }
+  abrirModal(modalContent : any) {
+    this.modalService.open(modalContent, { centered: true });
+  }
+
 }

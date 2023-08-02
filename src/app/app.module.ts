@@ -21,7 +21,8 @@ import { ListarTarefasComponent } from './listar-tarefas/listar-tarefas.componen
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    RouterModule.forRoot([])
+    RouterModule.forRoot([]),
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

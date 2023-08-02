@@ -1,0 +1,31 @@
+{
+  "tarefas": [
+    {
+      "id": 1,
+      "tipo": "Programar",
+      "descricao": "Desenvolver um Sistema",
+      "acoes": "",
+      "data_inicial": "02/08/2023",
+      "data_conclusao": "03/09/2023",
+      "status_tarefa": "Em andamento"
+    },
+    {
+      "id": 2,
+      "tipo": "Estudar",
+      "descricao": "Estudar Programação",
+      "acoes": "",
+      "data_inicial": "02/08/2023",
+      "data_conclusao": "03/08/2023",
+      "status_tarefa": "Concluída"
+    },
+    {
+      "id": 3,
+      "tipo": "Trabalhar",
+      "descricao": "Trabalhar e ter dinheiro",
+      "acoes": "",
+      "data_inicial": "02/08/2023",
+      "data_conclusao": "03/09/2099",
+      "status_tarefa": "Em andamento"
+    }
+  ]
+}

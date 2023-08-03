@@ -17,8 +17,8 @@
         <th scope="row">{{ tarefa.id }}</th>
         <td>{{ tarefa.tipo }}</td>
         <td>{{ tarefa.descricao }}</td>
-        <td>{{ tarefa.data_inicial }}</td>
-        <td>{{ tarefa.data_conclusao }}</td>
+        <td >{{ tarefa.data_inicial | date: 'dd/MM/yyyy' }}</td>
+        <td>{{ tarefa.data_conclusao | date: 'dd/MM/yyyy'  }}</td>
         <td *ngIf="tarefa.status_tarefa == 'Em andamento'" class="sttAndamento">{{ tarefa.status_tarefa }}</td>
         <td *ngIf="tarefa.status_tarefa == 'Concluída'" class="sttConcluida">{{ tarefa.status_tarefa }}</td>
         <td>

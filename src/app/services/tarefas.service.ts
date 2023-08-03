@@ -13,4 +13,8 @@ export class TarefasService {
   getTarefas(): Observable<any> {
     return this.http.get<any>(this.apiUrl);
   }
+
+  cadastrarTarefa(tarefa: any): Observable<any> {
+    return this.http.post<any>(this.apiUrl, tarefa);
+  }
 }

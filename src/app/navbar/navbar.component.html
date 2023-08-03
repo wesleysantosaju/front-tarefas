@@ -20,31 +20,35 @@
   </div>
   <button *ngIf="exibirBotao" class="btn btn-primary" style="float: right; margin-right: 15px;" (click)="abrirModal(modalContent)">+ Adicionar Tarefa</button>
 </nav>
+
 <ng-template #modalContent let-modal>
   <div class="modal-header">
     <h4 class="modal-title">Cadastro de Tarefas</h4>
   </div>
   <div class="modal-body">
     <div class="input-group flex-nowrap">
-      <input type="text" class="form-control" placeholder="Tipo da Tarefa" aria-label="Tipo da Tarefa" aria-describedby="addon-wrapping">
+      <input type="text" [(ngModel)]="novaTarefa.tipo" class="form-control" placeholder="Tipo da Tarefa" aria-label="Tipo da Tarefa" aria-describedby="addon-wrapping">
     </div>
     <br>
     <div class="input-group flex-nowrap">
-      <input type="text" class="form-control" placeholder="Descrição" aria-label="Descrição" aria-describedby="addon-wrapping">
+      <input type="text" [(ngModel)]="novaTarefa.descricao" class="form-control" placeholder="Descrição" aria-label="Descrição" aria-describedby="addon-wrapping">
     </div>
     <br>
     <div class="input-group flex-nowrap">
       <span class="input-group-text" id="addon-wrapping">Data Inicial</span>
-      <input type="date" class="form-control" aria-label="Descrição" aria-describedby="addon-wrapping">
+      <input type="date" class="form-control" [(ngModel)]="novaTarefa.data_inicial" aria-label="Descrição" aria-describedby="addon-wrapping">
     </div>
     <br>
     <div class="input-group flex-nowrap">
       <span class="input-group-text" id="addon-wrapping">Data Conclusão</span>
-      <input type="date" class="form-control" aria-label="Descrição" aria-describedby="addon-wrapping">
+      <input type="date" [(ngModel)]="novaTarefa.data_conclusao" class="form-control" aria-label="Descrição" aria-describedby="addon-wrapping">
     </div>
     <br>
     <hr>
     <button class="btn btn-danger" style="float: right; margin-right: 15px;" (click)="modal.dismiss('Cross click')">Cancelar</button>
-    <button class="btn btn-primary" style="float: right; margin-right: 15px;">Salvar</button>
+    <button class="btn btn-primary" style="float: right; margin-right: 15px;" (click)="cadastrarTarefa()">Salvar</button>
+  </div>
+  <div class="success-message" *ngIf="showSuccessMessage">
+    Item cadastrado com sucesso!
   </div>
 </ng-template>

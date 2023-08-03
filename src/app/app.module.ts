@@ -9,6 +9,9 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { RouterModule } from '@angular/router';
 import { ListarTarefasComponent } from './listar-tarefas/listar-tarefas.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Importe o BrowserAnimationsModule
+import { ToastrModule } from 'ngx-toastr'; // Importe o ToastrModule
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { HttpClientModule } from '@angular/common/http';
     NgbModule,
     RouterModule.forRoot([]),
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule, // Adicione o BrowserAnimationsModule
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

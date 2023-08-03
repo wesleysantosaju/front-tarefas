@@ -1,6 +1,9 @@
-import { Component, OnInit  } from '@angular/core';
+import { Component, OnInit, ViewChild   } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { TarefasService } from '../services/tarefas.service';
+import { ToastrService } from 'ngx-toastr'; // Importe o ToastrService
+import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
 
 @Component({
   selector: 'app-navbar',
@@ -8,9 +11,23 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  @ViewChild('modalTemplate') modalTemplate: any;
+  formulario: FormGroup;
+  showSuccessMessage: boolean = false;
+  modalVisible: boolean = false;
+  novaTarefa: any = { tipo: '' , descricao: '', acoes: '', data_inicial: '', data_conclusao: '', status_tarefa: 'Em andamento'};
   exibirBotao: boolean = false;
   constructor(private router: Router,
-    private modalService: NgbModal){
+    private modalService: NgbModal,
+    private tarefaService: TarefasService,
+    private toastr: ToastrService,
+    private formBuilder: FormBuilder){
+      this.formulario = this.formBuilder.group({
+        tipo: ['', Validators.required],
+        descricao: ['', Validators.required],
+        data_inicial: ['', Validators.required],
+        data_conclusao: ['', Validators.required]
+      });
 
   }
   ngOnInit() {
@@ -22,6 +39,26 @@ export class NavbarComponent implements OnInit {
   }
   abrirModal(modalContent : any) {
     this.modalService.open(modalContent, { centered: true });
+  }
+
+  fecharModal(): void {
+    this.modalVisible = false;
+    this.showSuccessMessage = false;
+    this.formulario.reset();
+  }
+
+  cadastrarTarefa(): void {
+    this.tarefaService.cadastrarTarefa(this.novaTarefa)
+      .subscribe(() => {
+        this.showSuccessMessage = true;
+        setTimeout(() => {
+      this.showSuccessMessage = false;
+    }, 3000);
+    setTimeout(() => {
+      this.fecharModal();
+    }, 3500);
+
+      });
   }
 
 }

@@ -74,5 +74,21 @@ export class ListarTarefasComponent implements OnInit {
       }
     );
   }
+  excluirTarefa(tarefa: any): void {
+    // Mostrar a confirmação antes de realizar a exclusão
+    const confirmacao = confirm('Tem certeza que deseja excluir esta tarefa?');
+    if (confirmacao) {
+      // Chamada para o serviço de exclusão
+      this.tarefasService.excluirTarefa(tarefa.id).subscribe(
+        () => {
+          // Exclusão bem-sucedida, atualiza os dados da tabela
+          this.getTarefas();
+        },
+        (error: any) => {
+          console.error('Erro ao excluir tarefa:', error);
+        }
+      );
+    }
+  }
 
 }

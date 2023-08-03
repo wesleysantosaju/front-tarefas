@@ -23,7 +23,7 @@
         <td *ngIf="tarefa.status_tarefa == 'Concluída'" class="sttConcluida">{{ tarefa.status_tarefa }}</td>
         <td>
           <button type="button" class="btn btn-danger btn-sm"  *ngIf="tarefa.status_tarefa == 'Concluída'">Excluir Tarefa</button>
-          <button type="button" class="btn btn-success btn-sm"  *ngIf="tarefa.status_tarefa == 'Em andamento'">Concluída</button>
+          <button type="button" class="btn btn-success btn-sm"  *ngIf="tarefa.status_tarefa == 'Em andamento'" (click)="marcarTarefaConcluida(tarefa)">Concluída</button>
         </td>
 
       </tr>

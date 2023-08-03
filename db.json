@@ -2,11 +2,11 @@
   "tarefas": [
     {
       "id": 1,
-      "tipo": "Programar",
-      "descricao": "Desenvolver um Sistema",
+      "tipo": "Correr",
+      "descricao": "Correr na rua",
       "acoes": "",
       "data_inicial": "02/08/2023",
-      "data_conclusao": "03/09/2023",
+      "data_conclusao": "03/08/2023",
       "status_tarefa": "Em andamento"
     },
     {
@@ -25,7 +25,7 @@
       "acoes": "",
       "data_inicial": "02/08/2023",
       "data_conclusao": "03/09/2099",
-      "status_tarefa": "Em andamento"
+      "status_tarefa": "Concluída"
     },
     {
       "tipo": "Teste",
@@ -42,7 +42,7 @@
       "acoes": "",
       "data_inicial": "2023-08-03",
       "data_conclusao": "2113-11-15",
-      "status_tarefa": "Em andamento",
+      "status_tarefa": "Concluída",
       "id": 5
     },
     {
@@ -51,8 +51,17 @@
       "acoes": "",
       "data_inicial": "2023-08-03",
       "data_conclusao": "2023-08-03",
-      "status_tarefa": "Em andamento",
+      "status_tarefa": "Concluída",
       "id": 6
+    },
+    {
+      "tipo": "Andar com a cachorra",
+      "descricao": "Passear com a cachorrinha",
+      "acoes": "",
+      "data_inicial": "2023-08-03",
+      "data_conclusao": "2023-08-23",
+      "status_tarefa": "Em andamento",
+      "id": 7
     }
   ]
 }

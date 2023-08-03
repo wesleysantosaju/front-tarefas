@@ -59,4 +59,20 @@ export class ListarTarefasComponent implements OnInit {
     });
   }
 
+  marcarTarefaConcluida(tarefa: any): void {
+    tarefa.status_tarefa = 'Concluída'; // Atualiza o campo status_tarefa para "concluída"
+
+    this.tarefasService.atualizarTarefaConcluida(tarefa).subscribe(
+      () => {
+        console.log('Tarefa marcada como concluída com sucesso!');
+        // Atualize a lista de tarefas para refletir o novo status
+        // Por exemplo, recarregando as tarefas novamente
+        // this.tarefas = this.tarefasService.obterTarefas();
+      },
+      (error) => {
+        console.error('Erro ao marcar a tarefa como concluída:', error);
+      }
+    );
+  }
+
 }

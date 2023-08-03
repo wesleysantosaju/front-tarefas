@@ -14,7 +14,7 @@ export class ListarTarefasComponent implements OnInit {
   // Configurações da paginação
   itemsPerPage: number = 5; // Número de itens por página
   currentPage: number = 1; // Página atual
-  tarefas!: any[];
+  tarefas: any[] = [];
 
   constructor(private tarefasService : TarefasService,
     private http: HttpClient){}

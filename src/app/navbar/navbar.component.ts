@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild   } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef   } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { TarefasService } from '../services/tarefas.service';
@@ -11,7 +11,9 @@ import { FormBuilder, FormGroup, Validators  } from '@angular/forms';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
-  @ViewChild('modalTemplate') modalTemplate: any;
+// Referência ao elemento do modal
+@ViewChild('modalContent', { static: true, read: ElementRef }) modalContent!: ElementRef;
+@ViewChild('modalTemplate') modalTemplate: any;
   formulario: FormGroup;
   showSuccessMessage: boolean = false;
   modalVisible: boolean = false;
@@ -51,14 +53,19 @@ export class NavbarComponent implements OnInit {
     this.tarefaService.cadastrarTarefa(this.novaTarefa)
       .subscribe(() => {
         this.showSuccessMessage = true;
+        this.fecharModalFun();
         setTimeout(() => {
       this.showSuccessMessage = false;
+
     }, 3000);
     setTimeout(() => {
-      this.fecharModal();
     }, 3500);
 
       });
+  }
+  fecharModalFun(): void {
+    // Fecha o modal removendo-o do DOM
+    this.modalContent.nativeElement.remove();
   }
 
 }

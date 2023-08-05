@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Importe o BrowserAnimationsModule
 import { ToastrModule } from 'ngx-toastr'; // Importe o ToastrModule
 import { NgxPaginationModule } from 'ngx-pagination';
+import { TarefasService } from './services/tarefas.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ToastrModule.forRoot(),
     NgxPaginationModule
   ],
-  providers: [],
+  providers: [TarefasService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

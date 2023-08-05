@@ -23,7 +23,7 @@
         <td *ngIf="tarefa.status_tarefa == 'Concluída'" class="sttConcluida">{{ tarefa.status_tarefa }}</td>
         <td *ngIf="isTarefaAtrasada(tarefa.data_conclusao) && tarefa.status_tarefa != 'Concluída' && tarefa.status_tarefa == 'Em andamento'" class="sttAtrasada">Atrasada desde {{ tarefa.data_conclusao | date: 'dd/MM/yyyy'}}</td>
         <td>
-          <button type="button" class="btn btn-danger btn-sm"  *ngIf="tarefa.status_tarefa == 'Concluída'" (click)="excluirTarefa(tarefa)">Excluir Tarefa</button>
+          <button type="button" class="btn btn-danger btn-sm"  *ngIf="tarefa.status_tarefa == 'Concluída'" (click)="openModal(tarefa)">Excluir Tarefa</button>
           <button type="button" class="btn btn-success btn-sm"  *ngIf="tarefa.status_tarefa == 'Em andamento'" (click)="marcarTarefaConcluida(tarefa)">Concluída</button>
         </td>
 
@@ -36,3 +36,17 @@
   <button class="btn btn-success" (click)="proximaPagina()">Próxima <i class="fas fa-arrow-right"></i></button>
 </div>
 </ng-container>
+
+
+<ng-template #confirmacaoModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Confirmação</h4>
+  </div>
+  <div class="modal-body">
+    Deseja realmente excluir a tarefa?
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="modal.close('Excluir')">Excluir</button>
+    <button type="button" class="btn btn-secondary" (click)="modal.dismiss('Cancelar')">Cancelar</button>
+  </div>
+</ng-template>

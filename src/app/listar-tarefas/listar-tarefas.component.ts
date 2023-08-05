@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { TarefasService } from '../services/tarefas.service';
 import { HttpClient } from '@angular/common/http';
 import { format } from 'date-fns';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-listar-tarefas',
@@ -17,12 +18,33 @@ export class ListarTarefasComponent implements OnInit {
   itemsPerPage: number = 5; // Número de itens por página
   currentPage: number = 1; // Página atual
   tarefas: any[] = [];
+  tarefaExcluir: any | null = null;
+  @ViewChild('confirmacaoModal', { static: false }) confirmacaoModal: any;
 
   constructor(private tarefasService : TarefasService,
-    private http: HttpClient){}
+    private http: HttpClient,
+    private modalService: NgbModal){}
 
   ngOnInit(): void {
       this.getTarefas();
+  }
+
+  openModal(tarefa: any) {
+    this.tarefas = tarefa;
+    this.modalService.open(this.confirmacaoModal).result.then(
+      (result) => {
+        if (result === 'Excluir') {
+          this.excluirTarefa(tarefa);
+        } else {
+          // Ação de cancelamento
+          this.tarefaExcluir = null;
+        }
+      },
+      () => {
+        // Ação de cancelamento (clique fora do modal)
+        this.tarefaExcluir = null;
+      }
+    );
   }
 
   getFormattedDate(): string {
@@ -88,11 +110,8 @@ export class ListarTarefasComponent implements OnInit {
       }
     );
   }
-  excluirTarefa(tarefa: any): void {
+  excluirTarefa(tarefa: any) {
     // Mostrar a confirmação antes de realizar a exclusão
-    const confirmacao = confirm('Tem certeza que deseja excluir esta tarefa?');
-    if (confirmacao) {
-      // Chamada para o serviço de exclusão
       this.tarefasService.excluirTarefa(tarefa.id).subscribe(
         () => {
           // Exclusão bem-sucedida, atualiza os dados da tabela
@@ -102,7 +121,6 @@ export class ListarTarefasComponent implements OnInit {
           console.error('Erro ao excluir tarefa:', error);
         }
       );
-    }
   }
 
 }

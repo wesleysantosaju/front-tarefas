@@ -1,24 +1,6 @@
 {
   "tarefas": [
     {
-      "tipo": "NOVA TAREFA TESTE",
-      "descricao": "NOVA",
-      "acoes": "",
-      "data_inicial": "2023-08-03",
-      "data_conclusao": "2023-08-04",
-      "status_tarefa": "Concluída",
-      "id": 4
-    },
-    {
-      "tipo": "Tarefa de dormir",
-      "descricao": "Dormir até umas horas",
-      "acoes": "",
-      "data_inicial": "2023-08-04",
-      "data_conclusao": "2023-08-04",
-      "status_tarefa": "Concluída",
-      "id": 5
-    },
-    {
       "tipo": "TESTE CAMPO ATRASO",
       "descricao": "TESTANDO",
       "acoes": "",
@@ -42,8 +24,17 @@
       "acoes": "",
       "data_inicial": "2023-08-03",
       "data_conclusao": "2023-08-04",
-      "status_tarefa": "Em andamento",
+      "status_tarefa": "Concluída",
       "id": 8
+    },
+    {
+      "tipo": "asdsas",
+      "descricao": "dasdasd",
+      "acoes": "",
+      "data_inicial": "2023-08-05",
+      "data_conclusao": "2023-08-06",
+      "status_tarefa": "Concluída",
+      "id": 9
     }
   ]
 }

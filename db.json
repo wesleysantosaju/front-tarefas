@@ -44,6 +44,15 @@
       "data_conclusao": "2023-08-06",
       "status_tarefa": "Em andamento",
       "id": 12
+    },
+    {
+      "tipo": "Nova",
+      "descricao": "Tarefa do dia",
+      "acoes": "",
+      "data_inicial": "2023-08-05",
+      "data_conclusao": "2023-08-10",
+      "status_tarefa": "Em andamento",
+      "id": 13
     }
   ]
 }

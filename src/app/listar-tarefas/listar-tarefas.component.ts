@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TarefasService } from '../services/tarefas.service';
 import { HttpClient } from '@angular/common/http';
+import { format } from 'date-fns';
 
 @Component({
   selector: 'app-listar-tarefas',
@@ -10,6 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class ListarTarefasComponent implements OnInit {
   // Dados da tabela
   data: any[] = []; // Substitua pelo array de dados da sua tabela
+  currentDate: Date = new Date();
 
   // Configurações da paginação
   itemsPerPage: number = 5; // Número de itens por página
@@ -21,6 +23,18 @@ export class ListarTarefasComponent implements OnInit {
 
   ngOnInit(): void {
       this.getTarefas();
+  }
+
+  getFormattedDate(): string {
+    return format(this.currentDate, 'dd/MM/yyyy');
+  }
+
+  isTarefaAtrasada(dataPrevista: string): boolean {
+    const dataPrevistaDate = new Date(dataPrevista);
+    const dataAtual = new Date();
+    // Define a hora da data atual para 00:00:00 para garantir uma comparação precisa apenas em relação à data.
+    dataAtual.setHours(0, 0, 0, 0);
+    return dataPrevistaDate <= dataAtual;
   }
 
   get dataToShow(): any[] {

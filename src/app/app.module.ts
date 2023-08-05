@@ -14,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import { ToastrModule } from 'ngx-toastr'; // Importe o ToastrModule
 import { NgxPaginationModule } from 'ngx-pagination';
 import { TarefasService } from './services/tarefas.service';
+import { TelaSuporteComponent } from './tela-suporte/tela-suporte.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { TarefasService } from './services/tarefas.service';
     CadastroTarefasComponent,
     CadastroTarefasComponent,
     NavbarComponent,
-    ListarTarefasComponent
+    ListarTarefasComponent,
+    TelaSuporteComponent
   ],
   imports: [
     BrowserModule,

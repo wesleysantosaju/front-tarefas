@@ -17,7 +17,7 @@ export class ListarTarefasComponent implements OnInit {
   // Configurações da paginação
   itemsPerPage: number = 5; // Número de itens por página
   currentPage: number = 1; // Página atual
-  tarefas: any[] = [];
+  tarefas: TarefasService[] = [];
   tarefaExcluir: any | null = null;
   @ViewChild('confirmacaoModal', { static: false }) confirmacaoModal: any;
 
@@ -60,6 +60,9 @@ export class ListarTarefasComponent implements OnInit {
   }
 
   get dataToShow(): any[] {
+    if (!Array.isArray(this.tarefas)) {
+      return []; // Retorna um array vazio se tarefas não for um array
+    }
     const startIndex = (this.currentPage - 1) * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
     return this.tarefas.slice(startIndex, endIndex);

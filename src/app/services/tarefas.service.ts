@@ -28,7 +28,7 @@ export class TarefasService {
   }
 
   excluirTarefa(id: number): Observable<any> {
-    // Implemente o código para excluir a tarefa da API pelo ID
+    // Implementar o código para excluir a tarefa da API pelo ID
     return this.http.delete<any>(this.apiUrl + '/' + id);
   }
 }
